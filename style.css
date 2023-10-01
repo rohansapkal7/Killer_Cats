@@ -1,0 +1,537 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family : monospace;
+}
+
+body{
+    background-color: white;
+}
+
+:root{
+    --col1 : #AACB73;
+    --col2 : #CDE990;
+}
+
+#mbp1,#mbp2, #mbp3, #mbp4 {
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(253, 208, 149);
+}
+/* ========   transtion classes ===========*/
+
+.highlight{
+    transform: scale(1.15);
+    transition: all 0.5s ease;
+}
+
+/* ======================================== */
+
+.console button{
+    border-style: none;
+    background-color: rgb(232, 155, 54);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.console button img{
+    width: 70%;
+}
+
+button:nth-child(1) img{
+    transform: rotate(-45deg);
+}
+
+button:nth-child(3) img{
+    transform: rotate(45deg);
+}
+
+button:nth-child(4) img{
+    transform: rotate(-90deg);
+}
+
+button:nth-child(6) img{
+    transform: rotate(90deg);
+}
+
+button:nth-child(7) img{
+    transform: rotate(-135deg);
+}
+
+button:nth-child(8) img{
+    transform: rotate(180deg);
+}
+
+button:nth-child(9) img{
+    transform: rotate(135deg);
+}
+
+.main{
+    display: none;
+}
+
+.desktop-error{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: darkslategray;
+}
+
+.desktop-error p{
+    color: black;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.desktop-error p span{
+    font-size: 2vw;
+    color: rgb(78, 143, 143);
+}
+
+/* ========================================================================================
+---------------------------------------------------------------------------------------- */
+
+@media(width<821px){
+
+    .main{
+        display: block;
+    }
+
+    .desktop-error{
+        display: none;
+    }
+
+    .LandingPage{
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(rgb(0, 149, 255),skyblue);
+        position: absolute;
+        top: 0%;
+        overflow: hidden;
+        z-index: 1;
+        transition: all 1s ease;
+    }
+
+    .paws-bg{
+        width: 200%;
+        opacity: 0.09;
+        animation: goup 16s linear infinite;
+        transition: all 1s ease;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .game-title{
+        position: absolute;
+        top: 3vh;
+        left: 50%;
+        width: 40vh;
+        transform: translateX(-50%);
+    }
+
+    .btn-div{
+        position: absolute;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        width: 60%;
+        top: 30vh;
+        left: 50%;
+        transform: translateX(-50%);
+        grid-row-gap: 1.5vh;
+        grid-column-gap: 1.5vh;
+        overflow: hidden;
+    }
+
+    .btn-div button{
+        padding: 2vh 0;
+        font-size: 3vh;
+        border: 0.7vw solid black;
+        border-radius: 10px;
+    }
+
+    .btn-div button:hover{
+        background-color: yellow;
+    }
+
+    .btn-div button:nth-child(4),.btn-div button:nth-child(5){
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    .aboutUs{
+        width: 100%;
+        height: 100%;
+        background-color: whitesmoke;
+        position: absolute;
+        top: 101%;
+        left: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border: 0.6vw solid black;
+        padding: 5% 4%;
+    }
+
+    .aboutUs h2,.aboutUs p:nth-child(2){
+        font-size: 3vw;
+        text-align: center;
+    }
+
+    .aboutUs p:nth-child(4){
+        text-align: center;
+        font-size: 2vw;
+    }
+
+    .aboutUs button{
+        width: 50%;
+        padding: 1.5vw;
+        font-size: 3vw;
+        border: 0.5vw solid black;
+        background-color: green;
+        font-weight: bold;
+    }
+
+    .cat-container{
+        width: 40vw;
+        position: absolute;
+        right: 10vw;
+        bottom: 24vw;
+        animation: getclose-right 4s linear infinite;
+    }
+
+    .cat-container-2{
+        width: 40vw;
+        position: absolute;
+        left: 1vw;
+        bottom: 24vw;
+        animation: getclose-left 7s linear infinite;
+    }
+
+    .grass-svg{
+        position: absolute;
+        right: 0%;
+        bottom: 0;
+        width: 120%;
+        animation: move-grass-tab 5s linear infinite;
+    }
+
+    .main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        align-items: center;
+        padding: 2% 0;
+        background: radial-gradient(navy,rgb(3, 3, 40));
+    }
+    
+    .upper,.lower{
+        width:100%;
+        display: inline-flex;
+        justify-content: space-around;
+        padding: 0 50px;
+    }
+    .game-screen{
+        aspect-ratio: 1;
+        width:95%;
+        display: grid;
+        grid-template-columns: repeat(14,1fr);
+        grid-template-rows: repeat(14,1fr);
+        border: 0.6vw solid white;
+    }
+
+    .game-screen div{
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    
+    .console{
+        aspect-ratio: 1;
+        width:20vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 2px;
+    }
+
+    .Gameover{
+        width: 100%;
+        height: 100vh;
+        background: radial-gradient(skyblue,rgb(0, 149, 255));
+        position: absolute;
+        top:0;
+        z-index: 1;
+        display: flex;
+        right: -101%;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        transition: all 1s ease;
+    }
+
+    .Gameover h1{
+        font-size: 10vh;
+        line-height: 0.9;
+        color: white;
+        margin-top: 10vw;
+        width: 100%;
+        text-align: center;
+        background: linear-gradient(90deg,rgba(255, 255, 255, 0),rgb(0, 119, 255),rgba(255, 255, 255, 0));
+        padding: 1vh 0;
+    }
+
+    .Gameover div{
+        width: 30vw;
+        aspect-ratio: 1;
+        margin-top: 8vh;
+        /* background-color: aqua; */
+        background-image: url(imgs/pets.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 96%;
+    }
+
+    .Gameover p{
+        width: 90%;
+        font-size: 5vw;
+        font-weight: bold;
+        text-align: center;
+        background: linear-gradient(90deg,rgba(255, 255, 255, 0),rgb(0, 119, 255),rgba(255, 255, 255, 0));
+        padding: 2vw 0;
+        margin-top: 5vw;
+        color: white;
+        animation: blink 1s linear infinite;
+        transition: all 1s ease;
+    }
+
+    .Gameover button{
+        width: 40%;
+        padding: 4vw 0;
+        font-size: 4vw;
+        border-style: none;
+        border-radius: 1vw;
+        background-color: yellow;
+        margin-top: 10vw;
+        animation: pokupoku 1s linear infinite;
+        transition: all 1s ease;
+    }
+
+    .guide{
+        background : radial-gradient(#fff7da, #ffd95a);
+        position: absolute;
+        overflow:auto;
+        top: -101%;
+        left: 0;
+        z-index: 2;
+        padding: 5vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3vw;
+        width: 100%;
+        height: 100vh;
+        scroll-snap-type: y;
+        font-size: 3.4vw;
+        transition: all 1s ease;
+        border-bottom: 1vw solid #c07f00;
+    }
+
+    .guide-cancel{
+        font-weight: bold;
+        font-size: 4.5vw;
+        background-color: #fff7d4;
+        padding: 1vw 2vw;
+        border-radius: 5px;
+        border: 0.5vw solid #c07f00;
+        align-self: flex-end;
+        color: #c07f00;
+    }
+
+    .guide-cancel:hover{
+        background-color: #c07f00;
+        color: #fff7d4;
+    }
+
+    .summary{
+        background-color: #fff7d4;
+        text-align: center;
+        padding: 2vw 3vw;
+        border-radius: 1.5vw;
+        border: 0.5vw solid #c07f00;
+    }
+
+    .guide-label{
+        width: 90%;
+        background : linear-gradient(-90deg,transparent, #c07f00);
+        font-size: 4vw;
+        color: #fff7d4;
+        font-weight: bold;
+        padding: 2vw 3vw;
+        align-self: flex-start;
+    }
+
+    .guide div{
+        width: 100%;
+        background-color: #fff7d4;
+        display: flex;
+        padding: 3vw;
+        align-items: center;
+        gap: 3vw;
+        border-radius: 1.5vw;
+        border: 0.5vw solid #c07f00;
+    }
+
+    .guide div img{
+        width: 15%;
+        aspect-ratio: 1;
+    }
+
+    .mute{
+        width: 10%;
+        aspect-ratio: 1;
+        /* background-color: red; */
+        position: absolute;
+        top: 4%;
+        left: 6%;
+        background-image: url("svgs/no-sound.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .insta-icon{
+        width: 9%;
+        aspect-ratio: 1;
+        /* background-color: red; */
+        position: absolute;
+        top: 4%;
+        right: 6%;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+    
+}
+
+/* ===================================================================================
+=================================================================================== */
+
+@media(width < 415px){
+
+    .LandingPage{
+        overflow: hidden;
+    }
+
+    .paws-bg{
+        animation: goup 14s linear infinite;
+    }
+
+    .grass-svg{
+        width: 180%;
+        animation: move-grass 20s linear infinite;
+    }
+
+    .game-title{
+        width: 35vh;
+        top: 5vh;
+    }
+
+    .btn-div{
+        top: 35vh;
+    }
+
+    .btn-div button{
+        
+        font-size: 2vh;
+        border-radius: 6px;
+    }
+
+    .cat-container{
+        width: 35vw;
+        position: absolute;
+        right: 3vw;
+        bottom: 37vw;
+    }
+
+    .cat-container-2{
+        width: 35vw;
+        position: absolute;
+        left: 3vw;
+        bottom: 37vw;
+    }
+
+    .main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2% 0;
+    }
+    
+    .upper{
+        margin-top: 40px;
+    }
+    .lower{
+        margin-bottom: 40px;
+    }
+
+    .upper,.lower{
+        width:100%;
+        display: inline-flex;
+        justify-content: space-around;
+        padding: 0;
+    }
+    .game-screen{
+        aspect-ratio: 1;
+        width:100%;
+        border-right: none;
+        border-left: none;
+    }
+    
+    .console{
+        aspect-ratio: 1;
+        width:33vw;
+    }
+
+    .Gameover h1{
+        margin-top: 20vw;
+    }
+
+    .Gameover button{
+        width: 50%;
+        padding: 4vw 0;
+        font-size: 5vw;
+        margin-top: 20vw;
+    }
+
+    .guide p{
+        line-height: 1.4;
+    }
+}
+
+@media(360px<= width <=389px){
+    .upper{
+        margin-top: 10px;
+        padding: 0;
+    }
+    .lower{
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    .console{
+        aspect-ratio: 1;
+        width:30vw;
+    }
+}

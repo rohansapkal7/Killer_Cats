@@ -1,0 +1,62 @@
+@keyframes move-grass {
+    0%{right: 0%;}
+    100%{right: -80%;}
+}
+
+@keyframes move-grass-tab {
+    0%{right: 0%;}
+    100%{right: -20%;}
+}
+
+@keyframes goup {
+    0%{
+        transform: translateY(0);
+
+    }
+    100%{transform: translateY(-50%);}
+}
+
+@keyframes blink {
+    0%,100%
+    {
+        opacity: 0;
+    }
+    50%
+    {
+        opacity: 1;
+    }
+}
+
+@keyframes pokupoku {
+    0%,100%
+    {
+        scale: 1;
+    }
+    50%
+    {
+        scale: 1.1;
+    }
+}
+
+@keyframes getclose-left {
+    0%,100%
+    {
+        left: 1vw;
+    }
+    50%
+    {
+        left: 10vw;
+    }
+}
+
+@keyframes getclose-right {
+    0%,100%
+    {
+        right: 10vw;
+    }
+    50%
+    {
+        right: 1vw;
+    }
+}
+

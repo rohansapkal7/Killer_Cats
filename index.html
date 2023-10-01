@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <title>Killer Cats</title>
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <div class="desktop-error">
+        <p>
+            Created for Tab/Mobile devices only<br>
+            <span>< use inspect mode, lol ;) ></span>
+        </p>
+    </div>
+    <div class="main">
+
+        <div class="LandingPage" id="lp">
+
+            <div class="mute" id="mute"></div>
+            <a href="https://instagram.com/kiiller_catts?igshid=MzNlNGNkZWQ4Mg=="><img src="svgs/instagram.png" alt="instagram icon" class="insta-icon"></a>
+
+            <img class="paws-bg" src="svgs/paws-bg.png" alt="paws background">
+            <img class="game-title" src="svgs/Game-Name-Art.png" alt="Game title">
+
+            <div class="btn-div">
+                <button onclick="Initialize(2)">2P</button>
+                <button onclick="Initialize(3)">3P</button>
+                <button onclick="Initialize(4)">4P</button>
+                <button onclick="handleGuide(true)">Guide</button>
+                <button onclick="handleAboutus(true)">About Us</button>
+
+                <div class="aboutUs">
+                    <h2>We are Developers <br>under developement ;)</h2>
+                    <p>Rohan Sapkal & Sandesh Bhale</p>
+                    <button onclick="handleAboutus(false)">Okay</button>
+                    <p>&#169 Copyright 2023 Killer Cats, all rights reserved by Rohan Sapkal and Sandesh Bhale.</p>
+                </div>
+            </div>
+            
+            <div class="cat-container">
+                <object data="svgs/Running-cat-grey.svg"></object>
+            </div>
+
+            <div class="cat-container-2">
+                <object data="svgs/Running-cat-brown.svg"></object>
+            </div>
+
+            <img class="grass-svg" src="svgs/grass.svg" alt="grass-svg">
+        
+        </div>
+
+        <!-- ====================================================================== -->
+
+        <div class="Gameover" id="gameOver">
+            
+            <img class="paws-bg" src="svgs/paws-bg.png" alt="paws background">
+            
+            <h1>GAME<br>OVER</h1>
+            <div></div>
+            <p>Dont Hack ;(</p>
+            <button onclick="ContinueGame()">Continue :)</button>
+
+        </div>
+
+        <!-- ======================================================================= -->
+
+        <div class="guide">
+
+            <button onclick="handleGuide(false)" class="guide-cancel">X</button>
+
+            <p class="summary">
+                <b>Killer Cats</b> is a <b>2 Player, 3 Player and 4 Player</b> strategic turn-based elimination game where, you have to survive at last by eliminating other (opponent) Cats. You have to apply your own stratergies along with Creative Powerups and Movement direction to dominate the field
+            </p>
+            
+            <label class="guide-label" >How to play :</label>
+
+            <p class="summary how-to-play">
+                Every player have their own console to jump their cat one block in top, down, left, right, top-left, top-right, bottom-left and bottom-right direction(s). Also it has the power button to use powers. You can kill a cat by simply jumping on it or using different powers.
+            </p>
+
+            <label class="guide-label" >Power Ups :</label>
+
+            <div>
+                <img src="imgs/pow1.png" alt="powerup-icon">
+                <p>
+                    <b>Mocchu-Slime</b> can be thrown in range of <b>6 tiles</b> from player in all directions. Every target within the range will get <b>sticked</b> to ground and will be unable to move for next <b>three (3) turns.</b>
+                </p>
+            </div>
+
+            <div>
+                <img src="imgs/pow2.png" alt="powerup-icon">
+                <p>
+                    <b>Iron Mess</b> is a heavy spiked ball, that can be thrown in <b>top, bottom, left, right</b> direction(s) and its range is upto <b>designated direction boundry. </b> This killer ball is able to <b>one-shot-kill</b> your rivals.
+                </p>
+            </div>
+
+            <div>
+                <img src="imgs/pow3.png" alt="powerup-icon">
+                <p>
+                    <b>Bubu's shield</b> will protect you from the power attacks like <b>Mocchu-Slime, Iron Mess</b> and <b>Power Gem.</b> Its effect is only for <b>one-time</b> from collecting it. Unfortunately it <b>can't avoid</b> Tullu's Book and Jump attacks.
+                </p>
+            </div>
+
+            <div>
+                <img src="imgs/pow4.png" alt="powerup-icon">
+                <p>
+                    <b>Tullu's Book</b> can teleport you in designated direction <b>boundry.</b> So you can use it for both <b>Escaping</b> as well as <b>Attack</b> purpose.
+                </p>
+            </div>
+
+            <div>
+                <img src="imgs/pow5.png" alt="powerup-icon">
+                <p>
+                    The <b>Power Gem</b> is able to create a <b>Dark-Hole</b> on Caster's next directed block. This Dark-Hole kills <b>every player</b> stepped in it and it <b>doesn't</b> have a <b>fade-out</b> time. So, use it wisely and don't be get hunted by <b>your own</b>.
+                </p>
+            </div>
+
+            <!-- ===================================================================== -->
+
+            
+
+        </div>
+
+        <!-- Upper Area Start -->
+        <div class="upper">
+            <div class="console highlight" id="c1">
+                <button onclick="GoTL(1)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GoTM(1)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOTR(1)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOL(1)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="setPowerBit(0)" id="mbp1"></button>
+                <button onclick="GOR(1)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBL(1)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBM(1);"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBR(1);"><img src="imgs/pets.png" alt="paw-png"></button>
+            </div>
+            <div class="console" id="c3">
+                <button onclick="GoTL(3)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GoTM(3)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOTR(3)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOL(3)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="setPowerBit(2)" id="mbp3"></button>
+                <button onclick="GOR(3)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBL(3)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBM(3);"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBR(3);"><img src="imgs/pets.png" alt="paw-png"></button>
+            </div>
+        </div>
+
+        <!-- Game Screen Strat -->
+        <div class="game-screen">
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+            <div class="unit"></div>
+        </div>
+
+        <!-- Lower Area Start -->
+        <div class="lower">
+            <div class="console" id="c4">
+                <button onclick="GoTL(4)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GoTM(4)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOTR(4)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOL(4)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="setPowerBit(3)" id="mbp4"></button>
+                <button onclick="GOR(4)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBL(4)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBM(4);"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBR(4);"><img src="imgs/pets.png" alt="paw-png"></button>
+            </div>
+            <div class="console" id="c2">
+                <button onclick="GoTL(2)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GoTM(2)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOTR(2)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOL(2)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="setPowerBit(1)" id="mbp2"></button>
+                <button onclick="GOR(2)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBL(2)"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBM(2);"><img src="imgs/pets.png" alt="paw-png"></button>
+                <button onclick="GOBR(2);"><img src="imgs/pets.png" alt="paw-png"></button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+    <!-- <script>
+        window.onload=function(){
+            document.getElementById('themeSong').play();
+        }
+    </script> -->
+</body>
+</html>
